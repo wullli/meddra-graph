@@ -67,10 +67,10 @@ def test_nodes_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path) -> No
     assert len(meddra_digraph.nodes) > 1
 
 # Generate IDs automatically from the test parameters
-def _generate_test_ids():
+def _generate_test_ids() -> list[str]:
     """Generate test IDs like soc1, soc2, hlgt1, hlgt2, etc."""
-    term_counts = {}
-    ids = []
+    term_counts: dict[str, int] = {}
+    ids: list[str] = []
     for term_level, _, _ in TEST_TERMS:
         term_counts[term_level] = term_counts.get(term_level, 0) + 1
         ids.append(f"{term_level}{term_counts[term_level]}")

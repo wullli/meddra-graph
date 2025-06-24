@@ -6,11 +6,6 @@ import networkx as nx
 DEFAULT_SCHEMA_PATH = Path(__file__).parent / "resources" / "meddra_schema_v28.json"
 
 
-class MedDRALoader:
-    def __init__(self) -> None:
-        pass
-
-
 class MedDRADiGraph(nx.DiGraph):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
@@ -22,7 +17,8 @@ class MedDRADiGraph(nx.DiGraph):
         self.meddra_version: Union[str, None] = None
 
     def load(
-        self, meddra_directory_path: Union[str, Path], schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
+            self, meddra_directory_path: Union[str, Path],
+            schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
     ) -> None:
         meddra_directory_path = Path(meddra_directory_path)
         self.schema = self._load_schema(schema_path)
