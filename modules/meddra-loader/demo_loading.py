@@ -4,7 +4,7 @@ Demo script to show MedDRADiGraph loading dummy data.
 """
 
 from pathlib import Path
-from src.meddra_loader.meddra_digraph import MedDRADiGraph
+from src.meddra_graph.meddra_digraph import MedDRADiGraph
 
 def main():
     # Create MedDRADiGraph instance

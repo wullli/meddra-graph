@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from meddra_loader.meddra_digraph import MedDRADiGraph
+from meddra_graph.meddra_digraph import MedDRADiGraph
 
 TEST_TERMS = [
     # SOC (System Organ Class) test cases

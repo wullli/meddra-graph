@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "meddra-loader"
+name = "meddra-graph"
 version = "0.1.0"
 authors = [
     {name = "Pascal Wullschleger"}
@@ -76,14 +76,14 @@ disable = [
 max-line-length = 120
 
 [tool.pytest.ini_options]
-testpaths = ["src/meddra_loader/tests"]
+testpaths = ["src/meddra_graph/tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
 addopts = "--strict-markers --strict-config"
 
 [tool.coverage.run]
-source = ["src/meddra_loader"]
+source = ["src/meddra_graph"]
 omit = ["*/tests/*"]
 
 [tool.coverage.report]
