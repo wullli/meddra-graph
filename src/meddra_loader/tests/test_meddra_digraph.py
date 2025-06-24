@@ -27,13 +27,13 @@ TEST_TERMS = [
 ]
 
 
-@pytest.fixture
-def meddra_digraph() -> MedDRADiGraph:
+@pytest.fixture(name="meddra_digraph")
+def meddra_digraph_fixture() -> MedDRADiGraph:
     return MedDRADiGraph()
 
 
-@pytest.fixture
-def test_data_path() -> Path:
+@pytest.fixture(name="test_data_path")
+def test_data_path_fixture() -> Path:
     return Path(__file__).parent / "test_data"
 
 
@@ -42,6 +42,7 @@ def test_term_levels_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path)
     assert meddra_digraph.meddra_version is not None
     assert len(meddra_digraph.term_levels) == 6
     assert set(meddra_digraph.term_levels) == {"soc", "hlgt", "hlt", "pt", "llt", "mdhier"}
+
 
 def test_schema_levels_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path) -> None:
     meddra_digraph.load(test_data_path)
@@ -54,17 +55,21 @@ def test_schema_levels_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Pat
     assert "llt.asc" in meddra_digraph.schema
     assert "mdhier.asc" in meddra_digraph.schema
 
+
 def test_edges_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path) -> None:
     meddra_digraph.load(test_data_path)
     assert len(meddra_digraph.edges) >= 0
+
 
 def test_terms_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path) -> None:
     meddra_digraph.load(test_data_path)
     assert len(meddra_digraph.terms) > 1
 
+
 def test_nodes_loaded(meddra_digraph: MedDRADiGraph, test_data_path: Path) -> None:
     meddra_digraph.load(test_data_path)
     assert len(meddra_digraph.nodes) > 1
+
 
 # Generate IDs automatically from the test parameters
 def _generate_test_ids() -> list[str]:
@@ -76,13 +81,14 @@ def _generate_test_ids() -> list[str]:
         ids.append(f"{term_level}{term_counts[term_level]}")
     return ids
 
+
 @pytest.mark.parametrize("term_level, term_code, expected_name", TEST_TERMS, ids=_generate_test_ids())
 def test_term_definitions_correct(
-    meddra_digraph: MedDRADiGraph,
-    test_data_path: Path,
-    term_level: str,
-    term_code: str,
-    expected_name: str
+        meddra_digraph: MedDRADiGraph,
+        test_data_path: Path,
+        term_level: str,
+        term_code: str,
+        expected_name: str
 ) -> None:
     """Test that each term level has the correct definition/name in the test data."""
     meddra_digraph.load(test_data_path)
@@ -94,5 +100,5 @@ def test_term_definitions_correct(
 
     name_field = f"{term_level}_name"
     assert name_field in term_data, f"Name field {name_field} not found in term data"
-    assert term_data[name_field] == expected_name, f"Expected {name_field} to be '{expected_name}', got '{term_data[name_field]}'"
-
+    assert term_data[
+               name_field] == expected_name, f"Expected {name_field} to be '{expected_name}', got '{term_data[name_field]}'"

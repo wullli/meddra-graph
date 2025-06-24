@@ -28,6 +28,10 @@ jobs:
         pip install -e .[dev]
         pip install mypy pylint coverage pytest-cov
 
+    - name: Code style check with black
+      run: |
+        black --check --diff src/
+
     - name: Type checking with mypy
       run: |
         mypy src/meddra_loader --ignore-missing-imports --strict-optional
@@ -35,10 +39,6 @@ jobs:
     - name: Linting with pylint
       run: |
         pylint src/meddra_loader --disable=missing-docstring,too-few-public-methods,invalid-name,redefined-outer-name
-
-    - name: Code style check with black
-      run: |
-        black --check --diff src/
 
     - name: Run tests with pytest and coverage
       run: |

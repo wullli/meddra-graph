@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from typing import Any, Union, cast
+
 import networkx as nx
 
 DEFAULT_SCHEMA_PATH = Path(__file__).parent / "resources" / "meddra_schema_v28.json"
