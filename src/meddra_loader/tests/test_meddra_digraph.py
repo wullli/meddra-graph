@@ -9,17 +9,14 @@ TEST_TERMS = [
     ("soc", "10001000", "Lorem ipsum dolor sit amet"),
     ("soc", "10002000", "Consectetur adipiscing elit"),
     ("soc", "10003000", "Sed do eiusmod tempor incididunt"),
-
     # HLGT (High Level Group Term) test cases
     ("hlgt", "10001001", "Nostrud exercitation ullamco"),
     ("hlgt", "10001002", "Laboris nisi ut aliquip ex ea"),
     ("hlgt", "10002001", "Commodo consequat duis aute irure"),
-
     # HLT (High Level Term) test cases
     ("hlt", "10001101", "Nulla pariatur excepteur sint occaecat"),
     ("hlt", "10001102", "Cupidatat non proident sunt in culpa"),
     ("hlt", "10002101", "Est laborum lorem ipsum dolor sit"),
-
     # LLT (Lowest Level Term) test cases - using codes that don't conflict with mdhier.asc
     ("llt", "10001302", "Cillum dolore eu fugiat nulla"),
     ("llt", "10001303", "Pariatur excepteur sint occaecat"),
@@ -84,11 +81,7 @@ def _generate_test_ids() -> list[str]:
 
 @pytest.mark.parametrize("term_level, term_code, expected_name", TEST_TERMS, ids=_generate_test_ids())
 def test_term_definitions_correct(
-        meddra_digraph: MedDRADiGraph,
-        test_data_path: Path,
-        term_level: str,
-        term_code: str,
-        expected_name: str
+    meddra_digraph: MedDRADiGraph, test_data_path: Path, term_level: str, term_code: str, expected_name: str
 ) -> None:
     """Test that each term level has the correct definition/name in the test data."""
     meddra_digraph.load(test_data_path)
@@ -100,5 +93,6 @@ def test_term_definitions_correct(
 
     name_field = f"{term_level}_name"
     assert name_field in term_data, f"Name field {name_field} not found in term data"
-    assert term_data[
-               name_field] == expected_name, f"Expected {name_field} to be '{expected_name}', got '{term_data[name_field]}'"
+    assert (
+        term_data[name_field] == expected_name
+    ), f"Expected {name_field} to be '{expected_name}', got '{term_data[name_field]}'"

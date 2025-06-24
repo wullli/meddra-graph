@@ -18,8 +18,7 @@ class MedDRADiGraph(nx.DiGraph):
         self.meddra_version: Union[str, None] = None
 
     def load(
-            self, meddra_directory_path: Union[str, Path],
-            schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
+        self, meddra_directory_path: Union[str, Path], schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
     ) -> None:
         meddra_directory_path = Path(meddra_directory_path)
         self.schema = self._load_schema(schema_path)
