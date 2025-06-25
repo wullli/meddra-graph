@@ -24,9 +24,10 @@ from meddra_graph.meddra_loader import MedDRALoader
 
 # Path to your MedDRA data directory
 meddra_path = Path("/path/to/meddra/data")
+schema_path = Path(__file__).parent / "resources" / "meddra_schema_v28.json" # optional, defaults to this
 
 # Load MedDRA data
-meddra_data = MedDRALoader.load(meddra_path)
+meddra_data = MedDRALoader.load(meddra_path, schema_path=schema_path)
 
 # Access loaded data
 print(f"MedDRA Version: {meddra_data.version}")
