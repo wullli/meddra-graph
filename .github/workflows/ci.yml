@@ -34,15 +34,15 @@ jobs:
 
     - name: Type checking with mypy
       run: |
-        mypy src/meddra_loader --ignore-missing-imports --strict-optional
+        mypy src/meddra_graph --ignore-missing-imports --strict-optional
 
     - name: Linting with pylint
       run: |
-        pylint src/meddra_loader --disable=missing-docstring,too-few-public-methods,invalid-name,redefined-outer-name
+        pylint src/meddra_graph --disable=missing-docstring,too-few-public-methods,invalid-name,redefined-outer-name
 
     - name: Run tests with pytest and coverage
       run: |
-        pytest src/meddra_loader/tests/ --cov=src/meddra_loader --cov-report=xml --cov-report=term
+        pytest src/meddra_graph/tests/ --cov=src/meddra_graph --cov-report=xml --cov-report=term
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
