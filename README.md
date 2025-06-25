@@ -9,6 +9,11 @@ DISCLAIMER: This software does not give you access to MedDRA and you need a vali
 
 ## Usage
 
+### Schema
+
+Since MedDRA raw data files do not contain schema information, it is necessary to provide a file that describes the schema of the MedDRA data. 
+This repository contains a schema file for MedDRA version 28.0 (`src/meddra_graph/resources/meddra_schema_v28.json`) that can be used as a starting point.
+
 ### MedDRALoader
 
 The `MedDRALoader` class provides functionality to load MedDRA data from standard MedDRA files:
