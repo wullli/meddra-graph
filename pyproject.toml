@@ -21,7 +21,8 @@ classifiers = [
 ]
 dependencies = [
     "networkx",
-    "pandas"
+    "pandas",
+    "types-networkx"
 ]
 
 [project.optional-dependencies]

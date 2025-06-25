@@ -1,114 +1,122 @@
 {
-  "llt.asc": {
-    "llt_code": "int",
-    "llt_name": "str",
-    "pt_code": "int",
-    "llt_whoart_code": "str",
-    "llt_harts_code": "int",
-    "llt_costart_sym": "str",
-    "llt_icd9_code": "str",
-    "llt_icd9cm_code": "str",
-    "llt_icd10_code": "str",
-    "llt_currency": "str",
-    "llt_jart_code": "str"
-  },
-  "pt.asc": {
-    "pt_code": "int",
-    "pt_name": "str",
-    "null_field": "str",
-    "pt_soc_code": "int",
-    "pt_whoart_code": "str",
-    "pt_harts_code": "int",
-    "pt_costart_sym": "str",
-    "pt_icd9_code": "str",
-    "pt_icd9cm_code": "str",
-    "pt_icd10_code": "str",
-    "pt_jart_code": "str"
-  },
-  "hlt.asc": {
-    "hlt_code": "int",
-    "hlt_name": "str",
-    "hlt_whoart_code": "str",
-    "hlt_harts_code": "int",
-    "hlt_costart_sym": "str",
-    "hlt_icd9_code": "str",
-    "hlt_icd9cm_code": "str",
-    "hlt_icd10_code": "str",
-    "hlt_jart_code": "str"
-  },
-  "hlt_pt.asc": {
-    "hlt_code": "int",
-    "pt_code": "int"
-  },
-  "hlgt.asc": {
-    "hlgt_code": "int",
-    "hlgt_name": "str",
-    "hlgt_whoart_code": "str",
-    "hlgt_harts_code": "int",
-    "hlgt_costart_sym": "str",
-    "hlgt_icd9_code": "str",
-    "hlgt_icd9cm_code": "str",
-    "hlgt_icd10_code": "str",
-    "hlgt_jart_code": "str"
-  },
-  "hlgt_hlt.asc": {
-    "hlgt_code": "int",
-    "hlt_code": "int"
-  },
-  "soc.asc": {
-    "soc_code": "int",
-    "soc_name": "str",
-    "soc_abbrev": "str",
-    "soc_whoart_code": "str",
-    "soc_harts_code": "int",
-    "soc_costart_sym": "str",
-    "soc_icd9_code": "str",
-    "soc_icd9cm_code": "str",
-    "soc_icd10_code": "str",
-    "soc_jart_code": "str"
-  },
-  "soc_hlgt.asc": {
-    "soc_code": "int",
-    "hlgt_code": "int"
-  },
-  "mdhier.asc": {
-    "pt_code": "int",
-    "hlt_code": "int",
-    "hlgt_code": "int",
-    "soc_code": "int",
-    "pt_name": "str",
-    "hlt_name": "str",
-    "hlgt_name": "str",
-    "soc_name": "str",
-    "soc_abbrev": "str",
-    "null_field": "str",
-    "pt_soc_code": "int",
-    "primary_soc_fg": "str"
-  },
-  "intl_ord.asc": {
-    "intl_ord_code": "int",
-    "soc_code": "int"
-  },
-  "smq_list.asc": {
-    "smq_code": "int",
-    "smq_name": "str",
-    "smq_level": "int",
-    "smq_description": "str",
-    "smq_source": "str",
-    "smq_note": "str",
-    "MedDRA_version": "str",
-    "status": "str",
-    "smq_algorithm": "str"
-  },
-  "smq_content.asc": {
-    "smq_code": "int",
-    "term_code": "int",
-    "term_level": "int",
-    "term_scope": "int",
-    "term_category": "str",
-    "term_weight": "int",
-    "term_status": "str",
-    "term_addition_version": "str",
-    "term_last_modified_version": "str"
+  "term_types": [
+    "llt",
+    "pt",
+    "hlt",
+    "hlgt",
+    "soc"
+  ],
+  "fields": {
+    "llt.asc": {
+      "llt_code": "int",
+      "llt_name": "str",
+      "pt_code": "int",
+      "llt_whoart_code": "str",
+      "llt_harts_code": "int",
+      "llt_costart_sym": "str",
+      "llt_icd9_code": "str",
+      "llt_icd9cm_code": "str",
+      "llt_icd10_code": "str",
+      "llt_currency": "str",
+      "llt_jart_code": "str"
+    },
+    "pt.asc": {
+      "pt_code": "int",
+      "pt_name": "str",
+      "pt_soc_code": "int",
+      "pt_whoart_code": "str",
+      "pt_harts_code": "int",
+      "pt_costart_sym": "str",
+      "pt_icd9_code": "str",
+      "pt_icd9cm_code": "str",
+      "pt_icd10_code": "str",
+      "pt_jart_code": "str"
+    },
+    "hlt.asc": {
+      "hlt_code": "int",
+      "hlt_name": "str",
+      "hlt_whoart_code": "str",
+      "hlt_harts_code": "int",
+      "hlt_costart_sym": "str",
+      "hlt_icd9_code": "str",
+      "hlt_icd9cm_code": "str",
+      "hlt_icd10_code": "str",
+      "hlt_jart_code": "str"
+    },
+    "hlt_pt.asc": {
+      "hlt_code": "int",
+      "pt_code": "int"
+    },
+    "hlgt.asc": {
+      "hlgt_code": "int",
+      "hlgt_name": "str",
+      "hlgt_whoart_code": "str",
+      "hlgt_harts_code": "int",
+      "hlgt_costart_sym": "str",
+      "hlgt_icd9_code": "str",
+      "hlgt_icd9cm_code": "str",
+      "hlgt_icd10_code": "str",
+      "hlgt_jart_code": "str"
+    },
+    "higt_hlt.asc": {
+      "hlgt_code": "int",
+      "hlt_code": "int"
+    },
+    "soc.asc": {
+      "soc_code": "int",
+      "soc_name": "str",
+      "soc_abbrev": "str",
+      "soc_whoart_code": "str",
+      "soc_harts_code": "int",
+      "soc_costart_sym": "str",
+      "soc_icd9_code": "str",
+      "soc_icd9cm_code": "str",
+      "soc_icd10_code": "str",
+      "soc_jart_code": "str"
+    },
+    "soc_higt.asc": {
+      "soc_code": "int",
+      "hlgt_code": "int"
+    },
+    "mdhier.asc": {
+      "pt_code": "int",
+      "hlt_code": "int",
+      "hlgt_code": "int",
+      "soc_code": "int",
+      "pt_name": "str",
+      "hlt_name": "str",
+      "hlgt_name": "str",
+      "soc_name": "str",
+      "soc_abbrev": "str",
+      "null_field": "str",
+      "pt_soc_code": "int",
+      "primary_soc_fg": "str"
+    },
+    "intl_ord.asc": {
+      "intl_ord_code": "int",
+      "soc_code": "int"
+    },
+    "smq_list.asc": {
+      "smq_code": "int",
+      "smq_name": "str",
+      "smq_level": "int",
+      "smq_description": "str",
+      "smq_source": "str",
+      "smq_note": "str",
+      "MedDRA_version": "str",
+      "status": "str",
+      "smq_algorithm": "str"
+    },
+    "smq_content.asc": {
+      "smq_code": "int",
+      "term_code": "int",
+      "term_level": "int",
+      "term_scope": "int",
+      "term_category": "str",
+      "term_weight": "int",
+      "term_status": "str",
+      "term_addition_version": "str",
+      "term_last_modified_version": "str"
+    }
   }
 }
