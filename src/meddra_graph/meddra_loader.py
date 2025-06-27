@@ -39,7 +39,7 @@ class MedDRALoader:
 
     @classmethod
     def load(
-            cls, meddra_directory_path: Union[str, Path], schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
+        cls, meddra_directory_path: Union[str, Path], schema_path: Union[str, Path] = DEFAULT_SCHEMA_PATH
     ) -> MedDRAData:
         meddra_directory_path = Path(meddra_directory_path)
         assert meddra_directory_path.is_dir()
@@ -48,16 +48,21 @@ class MedDRALoader:
         version = " ".join(cls._load_file(meddra_directory_path / "meddra_release.asc")[0]).strip()
         terms = cls._load_terms(meddra_directory_path, schema)
         edges = cls._load_edges(meddra_directory_path, schema)
-        edges = edges.union(set((term_data["pt_code"], llt_code) for llt_code, term_data in terms.items()
-                                if term_data["term_type"] == "llt"))
+        edges = edges.union(
+            set(
+                (term_data["pt_code"], llt_code)
+                for llt_code, term_data in terms.items()
+                if term_data["term_type"] == "llt"
+            )
+        )
 
         return MedDRAData(version=version, schema=schema.fields, terms=terms, edges=list(edges))
 
     @classmethod
     def _load_terms(
-            cls,
-            meddra_directory_path: Path,
-            schema: _MedDRASchema,
+        cls,
+        meddra_directory_path: Path,
+        schema: _MedDRASchema,
     ) -> dict[str, dict[str, Any]]:
         terms = {}
         for file_path in meddra_directory_path.glob("*.asc"):
