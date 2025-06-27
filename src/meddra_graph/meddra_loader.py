@@ -48,6 +48,13 @@ class MedDRALoader:
         version = " ".join(cls._load_file(meddra_directory_path / "meddra_release.asc")[0]).strip()
         terms = cls._load_terms(meddra_directory_path, schema)
         edges = cls._load_edges(meddra_directory_path, schema)
+        edges = edges.union(
+            set(
+                (term_data["pt_code"], llt_code)
+                for llt_code, term_data in terms.items()
+                if term_data["term_type"] == "llt"
+            )
+        )
 
         return MedDRAData(version=version, schema=schema.fields, terms=terms, edges=list(edges))
 
