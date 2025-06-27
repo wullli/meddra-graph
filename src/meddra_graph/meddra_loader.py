@@ -109,4 +109,4 @@ class MedDRALoader:
 
     @classmethod
     def _load_line(cls, line: str) -> tuple[str, ...]:
-        return tuple(line.strip().split("$"))[:-1] # there is always $ at the end of the line
+        return tuple(line.strip().split("$"))[:-1]  # there is always $ at the end of the line
