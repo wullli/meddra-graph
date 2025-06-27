@@ -80,6 +80,10 @@ def test_edges_loaded(meddra_data: MedDRAData) -> None:
     assert len(meddra_data.edges) == NUMBER_OF_TEST_EDGES
 
 
+def test_edges_are_pairs(meddra_data: MedDRAData) -> None:
+    assert all(len(e) == 2 for e in meddra_data.edges)
+
+
 def test_terms_loaded(meddra_data: MedDRAData) -> None:
     assert len(meddra_data.terms) == NUMBER_OF_TEST_TERMS
 
@@ -92,10 +96,15 @@ def test_graph_edges_loaded(meddra_data: MedDRAData) -> None:
     assert len(list(meddra_data.to_graph().edges())) == NUMBER_OF_TEST_EDGES
 
 
-def test_term_definitions_correct(meddra_data: MedDRAData) -> None:
+def test_graph_term_definitions_correct(meddra_data: MedDRAData) -> None:
     """Test that each term has the correct definition/name in the loaded data."""
     g = meddra_data.to_graph()
     for term_type, term_code, expected_name in TEST_TERMS:
         assert g.nodes[term_code][f"{term_type}_code"] == term_code
         assert g.nodes[term_code][f"{term_type}_name"] == expected_name
         assert g.nodes[term_code]["term_type"] == term_type
+
+
+def test_graph_roots_are_socs(meddra_data: MedDRAData) -> None:
+    g = meddra_data.to_graph()
+    assert all(g.nodes[n]["term_type"] == "soc" for n in g.nodes() if g.in_degree(n) == 0)
