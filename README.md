@@ -5,6 +5,8 @@
 [![CI](https://github.com/wullli/meddra-loader/workflows/CI/badge.svg)](https://github.com/wullli/meddra-loader/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/wullli/meddra-graph/graph/badge.svg?token=GN9CVJ0X0M)](https://codecov.io/gh/wullli/meddra-graph)
 
+The MedDRA terms are distributed in a proprietary format, that can be odd to process without existing tools. This library helps you load MedDRA correctly into a graph without needing to deal with the format.
+
 DISCLAIMER: This software does not give you access to MedDRA and you need a valid subscription to work with MedDRA data: https://www.meddra.org/. It merely provides tooling for loading the MedDRA data and hierarchy with python into a networkx graph. It is only intended for use with legitimately licensed MedDRA data and users are responsible for obtaining a valid license from the MSSO.
 
 ## Usage
