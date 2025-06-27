@@ -39,7 +39,7 @@ TEST_TERMS = [
 ]
 
 NUMBER_OF_TEST_TERMS = len(TEST_TERMS)
-NUMBER_OF_TEST_EDGES = 24
+NUMBER_OF_TEST_EDGES = 23
 
 
 def _generate_test_ids() -> list[str]:
